@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    title Document
+    link(rel="stylesheet" href="style/bootstrap.min.css")
+body
+    button.insertdata.btn.btn-primary
+        | 添加
+    table.table.table-hover
+        thead
+            th 编号
+            th 姓名
+            th 年龄
+            th 性别
+            th 删除
+            th 修改
+        tbody
+            -for(var i = 0;i<data.length;i++)
+                tr
+                    td=data[i].num
+                    td=data[i].name
+                    td=data[i].age
+                    td=data[i].sex
+                    td
+                        button.removedata(data_num=data[i].num) 删除
+                    td
+                        button.updatedata(data_num=data[i].num) 修改
+
+        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                            | ×
+                        h4#myModalLabel.modal-title
+                            | 添加/修改学生信息
+                    .modal-body
+                        form.myform(method="post")
+                            .form-group
+                                label() 编号：
+                                input.num.form-control(type='text' name="num")
+                            .form-group
+                                label() 姓名：
+                                input.form-control(type='text' name="name")
+                            .form-group
+                                label() 年龄:
+                                input.form-control(type='text' name="age")
+                            .form-group
+                                label() 性别:
+                                input.form-control(type='text' name="sex")
+                            button.btn.btn-default(type='button', data-dismiss='modal') 关闭
+                            button.btn.btn-primary(type='submit') 添加/修改
+    script(src="script/jquery.js")
+    script(src='script/bootstrap.min.js')
+    script(src='script/index.js')

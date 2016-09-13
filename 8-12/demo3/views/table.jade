@@ -1,0 +1,20 @@
+extends public
+block content
+	link(rel="stylesheet", href="style/table.css")
+	h2 这是表格
+	table.table
+		thead
+			th 姓名
+			th 年龄
+			th 性别
+		tbody
+			//-for(var i = 0;i<table.length;i++)
+				tr			
+					td=table[i].name
+					td=table[i].age
+					td=table[i].sex
+			-for(var i = 0;i<table.length;i++)
+				tr
+					each val,index in table[i]
+						td=val
+	

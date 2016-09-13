@@ -1,0 +1,8 @@
+{
+  "name": "mydb",
+  "version": "0.0.0",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.5"
+  }
+}

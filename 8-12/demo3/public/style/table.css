@@ -1,0 +1,16 @@
+.table{
+	border-right:1px solid #F00;
+	border-bottom:1px solid #F00;
+	margin-left: 38px;
+} 
+.table td{
+	width: 80px;
+	height: 20px;
+	text-align: center;
+	border-left:1px solid #F00;
+	border-top:1px solid #F00;
+} 
+.table th{
+	border-left:1px solid #F00;
+	border-top:1px solid #F00;
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title #{title}
+	link(rel="stylesheet", href="style/home.css")
+body
+	h3 我的第一个jade引擎
+	ul
+		//- li #{head[0]}
+		//- li #{head[1]}
+		//- li #{head[2]}
+		-for(var i=0;i<head.length;i++)
+			li
+				a(href=head[i].url)=head[i].name
+	img(src="images/0.jpg")
+	script(src="script/home.js")
