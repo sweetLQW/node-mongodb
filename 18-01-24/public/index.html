@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<form action="/all" method="post">
+    <input type="text" name="name">
+    <input type="text" name="password">
+    <input type="submit">
+</form>
+<script>
+    var XHR = new XMLHttpRequest();
+    XHR.open('POST', "/all", true);
+    XHR.setRequestHeader("Content-type", "application/json");
+    XHR.onreadystatechange = function() {
+        if (XHR.readyState == 4 && XHR.status == 200 || XHR.status == 304) {
+            console.log(XHR.responseText);
+        }
+    };
+    var data = {"name":"lqw"};
+    XHR.send(JSON.stringify(data));
+</script>
+</body>
+</html>
