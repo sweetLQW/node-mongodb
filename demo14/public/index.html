@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>局部更新数据</title>
+	<link rel="stylesheet" href="style/bootstrap.css">
+</head>
+<body>
+	<button class="showinsert btn btn-primary">添加数据</button>
+	<table class="tab table table-hover table-striped">
+    	<thead>
+    		<th>num</th>
+    		<th>name</th>
+    		<th>age</th>
+    		<th>sex</th>
+    		<th>修改</th>
+    		<th>删除</th>
+    	</thead>
+    	<tbody>
+    		<td><input type="button" value="删除"></td>
+    		<td><input type="button" value="删除"></td>
+    	</tbody>
+    </table>
+	<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+	        	<h4 id="myModalLabel" class="modal-title">添加/修改学生信息</h4>
+	      	</div>
+	      	<div class="modal-body">
+	        	<form id="myform">
+					<div class="form-group">
+					  <label>编号：</label>
+					  <input type="text" name="num" class="num form-control"/>
+					</div>
+					<div class="form-group">
+					  <label>姓名：</label>
+					  <input type="text" name="name" class="form-control"/>
+					</div>
+					<div class="form-group">
+					  <label>年龄:</label>
+					  <input type="text" name="age" class="form-control"/>
+					</div>
+					<div class="form-group">
+					  <label>性别:</label>
+					  <input type="text" name="sex" class="form-control"/>
+					</div>
+					<button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+					<button type="submit" class="c btn btn-primary">添加</button>
+				</form>
+	      	</div>
+	    </div>
+	  </div>
+	</div>
+	<script src="script/jquery.js"></script>
+	<script src="script/bootstrap.min.js"></script>
+	<script src="script/bootstrap.js"></script>
+	<script>
+		function show(data){//显示在table中
+			for(var i in data){
+				var $tr = $("<tr></tr>");
+				for(var j in data[i]){
+					if(j!="_id" ){//不显示id
+						var text = data[i][j];
+						var $td = $("<td></td>");
+						$td.text(text);
+						$tr.append($td);	
+					}
+				}
+				$("table tbody").append($tr);
+			}
+		}
+		function showdata(){
+			$.ajax({
+					method:"get",
+					url:"/finddata",
+				}).done(function(db){
+					show(db);
+				}).fail(function(){
+					alert("失败");
+				})
+		}
+		showdata();
+		$(".showinsert").click(function(){
+			$("#myModal").modal();
+		})
+		$("#myform").submit(function(){
+			var data = $(this).serialize();
+			console.log(data)
+			$.ajax({
+				method:"post",
+				url:"/insertdata",
+				data:data 
+			}).done(function(show){
+				console.log(show);
+			}).fail(function(){
+				alert("失败");
+			})
+			$(".tab tbody tr").empty();
+			showdata();
+			return false
+		})
+	</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<h3>ajax</h3>
+	<button class="btn1">get请求</button>
+	<button class="btn2">post请求</button>
+    <script>
+    //同步
+	    // alert("nihao")
+    	// console.log("哈哈哈")
+    //异步
+	    // setTimeout(function(){
+	    // 	alert("你好");
+	    // })
+	    // console.log("哈哈哈")
+	//ajax	
+		var oBtn1 = document.querySelector(".btn1");
+		var oBtn2 = document.querySelector(".btn2");
+		oBtn1.onclick = function(){
+			myAjax("get","/hello",function(show){
+				alert(show);
+			})
+		}
+		oBtn2.onclick = function(){
+			myAjax("post","/hello",function(show){
+				alert(show);
+			})
+		}
+		function myAjax(method,url,next){
+			var xhr = new XMLHttpRequest();
+			xhr.open(method,url);
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if(xhr.status == 200 && xhr.readyState == 4){
+					next(xhr.responseText);
+				}
+			}
+		}
+
+    </script>
+</body>
+</html>

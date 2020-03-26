@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<th>编号</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	<script src="script/jquery.js"></script>
+	<script>
+		var data = [
+			{	"num":"01",
+				"name":"01",
+				"age":"01",
+				"sex":"01",
+			},
+			{	"num":"02",
+				"name":"01",
+				"age":"01",
+				"sex":"01",
+			},
+			{	"num":"03",
+				"name":"01",
+				"age":"01",
+				"sex":"01",
+			}
+		]
+		console.log(data)
+		for(var i in data){
+			var $tr = $("<tr></tr>");
+			for(var j in data[i]){
+				var text = data[i][j];
+				var $td = $("<td></td>");
+				$td.text(text);
+				$tr.append($td);
+			}
+			$("table tbody").append($tr);
+		}
+
+	</script>
+</body>
+</html>

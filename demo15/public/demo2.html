@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<h3>ajax</h3>
+	<button class="btn1">get请求</button>
+	<button class="btn2">post请求</button>
+	<button class="ajax">ajax请求</button>
+	<script src="script/jquery.js"></script>
+    <script>
+    //jquery方法直接调用XMLHttpRequest方法，XMLHttpRequest是浏览器请求用的内置对象
+		$(".btn1").click(function(){
+			$.get("/hello",{"username":"lqw","password":"111"},function(show){
+				alert(show);
+			})
+		})
+		$(".btn2").click(function(){
+			$.post("/hello",{"username":"lqw","password":"111"},function(show){
+				alert(show);
+			})
+		})
+		$(".ajax").click(function(){
+			$.ajax({
+				"method":"post",
+				"url":"/hello",
+				"data":{"username":"lqw","password":"111"}
+			}).done(function(show){
+				alert(show);
+			}).fail(function(){
+				alert("失败");
+			})
+		})
+
+    </script>
+</body>
+</html>

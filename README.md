@@ -1,7 +1,7 @@
 # node-mongodb
 
 ##### demo01 初识node 
-###### 运行node main.js
+###### 运行命令 node main.js
 
 ##### demo02
 ###### bubble.js 冒泡排序 
@@ -23,3 +23,6 @@
 ##### demo11 登录界面
 ##### demo12 events,fs,Stream等操作
 ##### demo13 连接服务器获取数据
+##### demo14 启动服务器基础
+##### demo15 服务器连接数据库
+##### demo16 跨域 & ajax

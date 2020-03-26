@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax提交表单</title>
+</head>
+<body>
+	<form id="myform">
+		<input type="text" name="num">
+		<input type="text" name="name">
+		<input type="text" name="age">
+		<input type="text" name="sex">
+		<input type="submit">
+	</form>
+	<script src="script/jquery.js"></script>
+	<script>
+		$("#myform").submit(function(){
+			var data = $(this).serialize();
+			$.ajax({
+				method:"post",
+				url:"/insertdata",
+				data:data 
+			}).done(function(show){
+				console.log(show);
+			})
+			return false
+		})
+	</script>
+</body>
+</html>
