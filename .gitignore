@@ -1,3 +1,5 @@
 # Do not index npm modules
 node_modules
 dist
+.idea
+.DS_Store
