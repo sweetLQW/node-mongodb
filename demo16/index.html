@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js跨域</title>
+</head>
+<body>
+    <script src="./script/jquery.js"></script>
+    <script>
+        // 后端设置Access-Control-Allow-Origin为*，前端正常请求
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://127.0.0.1:2000/ajax/list');
+        xhr.onload = function() {
+            console.log(JSON.parse(xhr.responseText));
+        }
+        xhr.send();
+
+        // jQuery的jsonp
+        $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1:2000/jsonp/list',
+            dataType: 'jsonp',
+            success: function(res) {
+                console.log(res);
+            },
+            error: function(err) {
+                console.log(err);
+            }   
+        })
+        
+        // 插入script实现跨域
+        document.addEventListener('DOMContentLoaded', function(){
+            let script = document.createElement('script');
+            script.src = 'http://127.0.0.1:2000/script/list?callback=showData';
+            document.getElementsByTagName('body')[0].appendChild(script);
+        });
+        function showData(data) {
+            console.log(data);
+        }
+    </script>
+</body>
+</html>
