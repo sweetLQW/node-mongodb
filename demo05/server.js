@@ -1,8 +1,9 @@
 var express = require("express");
 var app = express();
 var path = require("path")
+
 app.set("view engine","jade");
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.get("/table",function(req,res){
 	var title = "表格";
 	var table = [
@@ -22,12 +23,12 @@ app.get("/table",function(req,res){
 			sex:"female"
 		}
 	]
-	res.render("table",{title:title,table:table});
+	res.render("table", {title: title,table: table});
 })
 app.get("/",function(req,res){
 	var title = "主页";
-	res.render("home",{title:title});
+	res.render("home", {title: title});
 })
-app.listen(3000,function(){
+app.listen(3000, function(){
 	console.log("服务器已经启动")
 })

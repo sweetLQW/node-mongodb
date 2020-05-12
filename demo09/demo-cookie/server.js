@@ -9,7 +9,7 @@ app.get("/",function(req,res){
     if(req.cookies.username){
         res.send("欢迎再次访问");
     }else{
-        res.cookie("username","liu");//cookie是存在浏览器端，相对不安全
+        res.cookie("username", "liu");//cookie是存在浏览器端，相对不安全
         res.send("欢迎第一次访问");
     }
 })

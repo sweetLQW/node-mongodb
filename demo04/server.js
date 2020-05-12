@@ -13,6 +13,6 @@ app.get("/ne",function(req,res){
 app.get("/fl",function(req,res){
 	res.render("flash");
 })
-app.listen(3000,function(){
+app.listen(3000, function(){
 	console.log("服务器已启动");
 })

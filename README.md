@@ -1,21 +1,14 @@
 # node-mongodb
 
-##### demo01 初识node 
-###### 运行命令 node main.js
-
-##### demo02
-###### bubble.js 冒泡排序 
-###### demo12 服务器搭建
-###### demo13 引入第三方模块
-###### demo14 需要引入的模块
-###### main.js 主文件
-###### module1 引入的文件
-###### module2 引入的文件
-
-##### demo03 渲染模板
+##### demo01 初识node: 运行命令 node main.js
+##### demo02 http服务器搭建
+##### demo03 express搭建服务器 & 渲染模板
 ##### demo04 get方法
 ##### demo05 更新数据
-##### demo06 连接数据库，操作数据
+##### demo06 连接数据库，操作数据(mongolDB)
+
+​	MongoDB分布式文件存储的数据库， 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。
+
 ##### demo07 get，post方法
 ##### demo08 增删改查数据
 ##### demo09 cookie & keeplogin & session
